@@ -6,7 +6,7 @@ eople use them as interview prep, company training, university coursework, pract
 | Day | Puzzle 1 | Puzzle 2 |
 | :-: | :------: | :------: |
 | 01  |  :star:  |  :star:  |
-| 02  |          |          |
+| 02  |  :star:  |  :star:  |
 | 03  |          |          |
 | 04  |          |          |
 | 05  |          |          |
