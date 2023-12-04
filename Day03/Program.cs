@@ -32,7 +32,27 @@ symbols.ForEach(s =>
 
     numbers = numbers.Except(adjacent).ToList();
 });
-
-
-
 Console.WriteLine(partNumbers.Select(n => n.Value).Sum());
+
+
+
+
+Console.WriteLine("Day 3 - Part two");
+numbers = [];
+List<int> gearRatios = [];
+for (int i = 0; i < lines.Count(); i++)
+{
+    foreach (Match match in Regex.Matches(lines.ElementAt(i), NUMBER_REGEX))
+        numbers.Add(new Number { Value = int.Parse(match.Value), Row = i, StartIndex = match.Index, EndIndex = match.Index + match.Value.Count() - 1 });
+}
+
+symbols.ForEach(s =>
+{
+    var adjacent = numbers.Where(n => s.Row == n.Row && (s.Column - 1 == n.EndIndex || s.Column + 1 == n.StartIndex))
+        .Concat(numbers.Where(n => s.Row + 1 == n.Row && (n.StartIndex - 1) <= s.Column && s.Column <= (n.EndIndex + 1)))
+        .Concat(numbers.Where(n => s.Row - 1 == n.Row && (n.StartIndex - 1) <= s.Column && s.Column <= (n.EndIndex + 1)));
+
+    if (adjacent.Count() == 2)
+        gearRatios.Add(adjacent.ElementAt(0).Value * adjacent.ElementAt(1).Value);
+});
+Console.WriteLine(gearRatios.Sum());

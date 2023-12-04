@@ -7,7 +7,7 @@ eople use them as interview prep, company training, university coursework, pract
 | :-: | :------: | :------: |
 | 01  |  :star:  |  :star:  |
 | 02  |  :star:  |  :star:  |
-| 03  |          |          |
+| 03  |  :star:  |  :star:  |
 | 04  |          |          |
 | 05  |          |          |
 | 06  |          |          |
