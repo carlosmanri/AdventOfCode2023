@@ -2,13 +2,13 @@
 
 Console.WriteLine("Day 1 - Part one");
 
-int total = 0;
-foreach (var line in lines)
+var total = lines.Select(line =>
 {
     var first = line.SkipWhile(char.IsAsciiLetter).First();
     var last = line.Reverse().SkipWhile(char.IsAsciiLetter).First();
-    total += int.Parse(new string(new char[] { first, last }));
-}
+    return int.Parse(new string(new char[] { first, last }));
+}).Sum();
+
 Console.WriteLine(total);
 
 
@@ -21,16 +21,13 @@ var numbers = new Dictionary<string, string>
     { "seven", "s7n"},{ "eight", "e8t"},{ "nine", "n9e"},
 };
 
-total = 0;
-foreach (var line in lines)
-{
-    string replacedLine = line;
+total = lines.Select(line =>
+        numbers.Aggregate(line, (x, number) => x.Replace(number.Key, number.Value)))
+    .Select(line =>
+    {
+        var first = line.SkipWhile(char.IsAsciiLetter).First();
+        var last = line.Reverse().SkipWhile(char.IsAsciiLetter).First();
+        return int.Parse(new string(new char[] { first, last }));
+    }).Sum();
 
-    foreach (var item in numbers)
-        replacedLine = replacedLine.Replace(item.Key, item.Value);
-    
-    var first = replacedLine.SkipWhile(char.IsAsciiLetter).First();
-    var last = replacedLine.Reverse().SkipWhile(char.IsAsciiLetter).First();
-    total += int.Parse(new string(new char[] { first, last }));
-}
 Console.WriteLine(total);
