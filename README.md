@@ -11,7 +11,7 @@ eople use them as interview prep, company training, university coursework, pract
 | 04  |  :star:  |  :star:  |
 | 05  |  :star:  |  :star:  |
 | 06  |  :star:  |  :star:  |
-| 07  |          |          |
+| 07  |  :star:  |          |
 | 08  |          |          |
 | 09  |          |          |
 | 10  |          |          |
